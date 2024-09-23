@@ -1,0 +1,56 @@
+h1{
+color: red;
+text-align: center;
+}
+li{
+color:maroon;
+text-align: center;
+}
+h2{
+color:blanchedalmond;
+text-align: center;
+}
+h3{
+color: chocolate;
+text-align: center;
+}
+h4{
+color: coral;
+text-align: center;
+}
+body {
+    background-color:lightgray;
+}
+ol{
+color: bisque;
+text-align: center;
+}
+footer{
+color: green;
+text-align: center;
+}
+main{
+color: olive;
+text-align: center;
+}
+p{
+font-family: 'Times New Roman', Times, serif;
+font-size: large;
+font-weight: 350;
+}
+h1{ font-family: 'Times New Roman', Times, serif; font-size: large;}
+h2{font-family: 'Times New Roman', Times, serif;font-size: large;}
+li{font-family: 'Times New Roman', Times, serif;font-size: large;}
+ol{font-family: 'Times New Roman', Times, serif;font-size: large;}
+h2 li{ font-family: 'Times New Roman', Times, serif;font-size: larger;}
+a{ color: darkred;}
+a{ font-family: 'Times New Roman', Times, serif;font-size: larger;}
+p{color:cadetblue;
+text-align: center;
+}
+p.dotted{ border-style: dotted;
+}
+h5{ color: blueviolet; font-family:'Times New Roman', Times, serif center; font-size: large;text-align: center;}
+
+
+
