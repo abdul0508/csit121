@@ -1,0 +1,27 @@
+body{
+    background-image: url("background.jpg");
+}
+h1{
+    color: orange;
+    font-size: larger;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+}
+p{
+    color:orange;
+    font-size: larger;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+}
+a{
+    color: orange;
+    font-size: larger;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+}
+ul{
+    color: orange;
+    font-size: larger;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+}

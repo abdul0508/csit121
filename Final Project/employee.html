@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Employees Data from XML</title>
+    <link rel="stylesheet" type="text/css" href="finalproject.css">
+    
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #7ce2af;
+        }
+
+        th {
+            background-color: #7c0f65;
+            color: white;
+        }
+
+        .button {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            border: 4px solid rgb(55, 12, 211);
+            background: rgba(20, 192, 4, 0.5);
+            color: rgb(230, 36, 78);
+            outline: none;
+            border-radius: 30px;
+            font-size: 30px;
+            width: 500px;
+        }
+
+        .button:hover {
+            color: black;
+            background: white;
+        }
+    </style>
+
+    <script>
+        function loadXMLDoc() {
+    console.log("loadXMLDoc called");
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        console.log("State changed: " + this.readyState + " Status: " + this.status);
+        if (this.readyState == 4) {
+            console.log("Request URL: " + this.responseURL);
+            console.log("Status: " + this.status);
+            if (this.status == 200) {
+                let parser = new DOMParser();
+                let xmlDoc = parser.parseFromString(this.responseText, "application/xml");
+                if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
+                    console.error("Error parsing XML: ", xmlDoc.getElementsByTagName("parsererror")[0].innerHTML);
+                } else {
+                    empDetails(xmlDoc);
+                }
+            } else {
+                console.error("Error loading XML file. Status: " + this.status);
+            }
+        }
+    };
+    xmlhttp.open("GET", "employee.xml", true);
+    xmlhttp.send();
+}
+
+function empDetails(xml) {
+    console.log("Parsing XML data...");
+    let xmlDoc = xml;
+
+    if (!xmlDoc || xmlDoc.getElementsByTagName("parsererror").length > 0) {
+        console.error("Error: Unable to load XML data.");
+        return;
+    }
+
+    let table = `
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Title</th>
+            <th>Division</th>
+            <th>Building</th>
+            <th>Room</th>
+        </tr>
+    `;
+    let employees = xmlDoc.getElementsByTagName("employee");
+
+    for (let i = 0; i < employees.length; i++) {
+        table += `
+            <tr>
+                <td>${employees[i].getElementsByTagName("firstname")[0].childNodes[0].nodeValue}</td>
+                <td>${employees[i].getElementsByTagName("lastname")[0].childNodes[0].nodeValue}</td>
+                <td>${employees[i].getElementsByTagName("title")[0].childNodes[0].nodeValue}</td>
+                <td>${employees[i].getElementsByTagName("division")[0].childNodes[0].nodeValue}</td>
+                <td>${employees[i].getElementsByTagName("building")[0].childNodes[0].nodeValue}</td>
+                <td>${employees[i].getElementsByTagName("room")[0].childNodes[0].nodeValue}</td>
+            </tr>
+        `;
+    }
+
+    document.getElementById("employeeTable").innerHTML = table;
+}
+
+    
+    </script>
+</head>
+<body>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="lab01.html">Lab 01, My Bio</a>
+            <a href="lab02.html">Lab 02, Lab 1/2 Reflection</a>
+            <a href="lab03.html">Lab 03, Introduction to CSS</a>
+            <a href="gif.html">Lab 04, GIF 1</a>
+            <a href="jpg.html">Lab 04, JPG 1</a>
+            <a href="png.html">Lab 04, PNG 1</a>
+            <a href="lab05.html">Lab 05, Layout Lab</a>
+            <a href="lab06.html">Lab 06, UI/UX Evaluation</a>
+            <a href="lab07.html">Lab 07, Feedback Form </a>
+            <a href="tierlist.html">Lab 07, Fictional Characters Ranked</a>
+            <a href="gif2.html">Lab 08, GIF2</a>
+            <a href="png2.html">Lab 08, PNG2</a>
+            <a href="jpg2.html">Lab 08, JPG2</a>
+            <a href="introduction.html">Lab 10, Web App Introduction</a>
+            <a href="importance.html">Lab 10, Web App Importance</a>
+            <a href="usage.html">Lab 10, Web App Uses</a>
+            <a href="sources.html">Lab 10, Web App Sources</a>
+            <a href="reflection.html">Final Project Reflection</a>
+        </div>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+    
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+    </script>
+    <center>
+        <button type="button" class="button" onclick="loadXMLDoc()">Get Employee Details</button>
+    </center>
+
+    <br><br>
+    <table id="employeeTable"></table>
+</body>
+</html>
+
+
+

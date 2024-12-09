@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fictional Characters Ranked</title>
+    <link rel="stylesheet" type="text/css" href="table.css">
+    <link rel="stylesheet" type="text/css" href="finalproject.css">
+    <a href="tierlist.html"> My Character Ranking</a>
+<h1>Feedback Form</h1>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="lab01.html">Lab 01, My Bio</a>
+            <a href="lab02.html">Lab 02, Lab 1/2 Reflection</a>
+            <a href="lab03.html">Lab 03, Introduction to CSS</a>
+            <a href="gif.html">Lab 04, GIF 1</a>
+            <a href="jpg.html">Lab 04, JPG 1</a>
+            <a href="png.html">Lab 04, PNG 1</a>
+            <a href="lab05.html">Lab 05, Layout Lab</a>
+            <a href="lab06.html">Lab 06, UI/UX Evaluation</a>
+            <a href="tierlist.html">Lab 07, Fictional Characters Ranked</a>
+            <a href="gif2.html">Lab 08, GIF2</a>
+            <a href="png2.html">Lab 08, PNG2</a>
+            <a href="jpg2.html">Lab 08, JPG2</a>
+            <a href="employee.html">Lab 09, Employee Data</a>
+            <a href="introduction.html">Lab 10, Web App Introduction</a>
+            <a href="importance.html">Lab 10, Web App Importance</a>
+            <a href="usage.html">Lab 10, Web App Uses</a>
+            <a href="sources.html">Lab 10, Web App Sources</a>
+            <a href="reflection.html">Final Project Reflection</a>
+        </div>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+    
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+    </script>
+</body>
+ <form action="#" method="post">
+    <label for="name">Full Name:</label><br>
+    <input type="name" id="name" name="name"><br><br>
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="comments">Feedback/comments</label>
+    <input type="comments" id="comments" name="comments"><br><br>
+    <button type="button" onclick="alert('Post')">Submit!</button>
+    <form action="/action_page.php">
+        <label for="character">Choose a Character</label>
+        <select id="character" name="character">
+          <option value="Batman">Batman</option>
+          <option value="Deathstroke">Deathstroke</option>
+          <option value="Iron Man">Iron Man</option>
+          <option value="Winter Soldier">Winter Soldier</option>
+        </select>
+        <input type="submit">
+    </form>
+</body>
